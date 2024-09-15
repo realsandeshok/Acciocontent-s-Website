@@ -29,7 +29,7 @@ function App() {
       <section id="mission" className="navbar-offset">
         <Mission />
       </section>
-      <section id="services" className="">
+      <section id="services" className="navbar-offset">
         <Services />
       </section>
       <section id="branding" className="">
