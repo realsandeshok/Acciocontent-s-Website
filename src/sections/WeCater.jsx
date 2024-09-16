@@ -4,7 +4,7 @@ const WeCater = () => {
   return (
     <>
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-8">
+        <div className="text-center my-10 md:my-9">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
             We cater to the enchanting world of
           </h2>

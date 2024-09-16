@@ -5,13 +5,13 @@ import AboutUs from "./sections/AboutUs";
 import AcciocontentSecret from "./sections/AcciocontentSecret";
 import Branding from "./sections/Branding";
 import GetAQuote from "./sections/GetAQuote";
-import Mission from "./sections/Mission";
 import Services from "./sections/Services";
 import Team from "./sections/Team";
 import { Testimonial } from "./sections/Testimonial";
-import Vision from "./sections/Vision";
 import WeCater from "./sections/WeCater";
 import Hero from "./sections/Hero"
+import Footer from './components/Footer';
+import OurPurpose from './sections/OurPurpose';
 
 function App() {
   return (
@@ -23,11 +23,8 @@ function App() {
       <section id="about" className="navbar-offset">
         <AboutUs />
       </section>
-      <section id="vision" className="navbar-offset">
-        <Vision />
-      </section>
-      <section id="mission" className="navbar-offset">
-        <Mission />
+      <section id="ourpurpose" className="navbar-offset">
+        <OurPurpose />
       </section>
       <section id="services" className="navbar-offset">
         <Services />
@@ -53,6 +50,7 @@ function App() {
       <section id="faqs">
         <FAQ />
       </section>
+      <Footer />
     </div>
   );
 }

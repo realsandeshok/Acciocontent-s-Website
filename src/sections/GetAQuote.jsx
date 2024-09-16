@@ -1,5 +1,4 @@
 import React from "react";
-import { Card1 } from "../components/Card1";
 
 function GetAQuote() {
   return (
@@ -115,8 +114,8 @@ function GetAQuote() {
         </button>
       </div>
 
-      <section className="relative py-16 bg-gray-50">
-        {/* Background Image */}
+      {/* <section className="relative py-16 bg-gray-50">
+        // Background Image
         <div className="absolute inset-0">
           <img
             src="https://acciocontent.com/_next/static/media/location-bg.0102ab51.png"
@@ -146,7 +145,7 @@ function GetAQuote() {
             />
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
