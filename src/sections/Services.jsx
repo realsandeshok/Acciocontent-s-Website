@@ -3,20 +3,20 @@ import React from "react";
 function Services() {
   return (
     <>
-      <section className="m-4 sm:m-10 md:m-20 lg:m-28 p-6 sm:p-8 md:p-12 rounded-3xl border-[1px] border-red-300">
+      <section className="m-2 sm:m-5 md:m-12 lg:m-18 p-6 sm:p-8 md:p-12 rounded-3xl border-[1px] border-red-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900">
-              Services
+              Services Portfolio
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {[
-              { text: "Brand Positioning & Messaging", icon: "services-icon-1.svg" },
-              { text: "Content Strategy & Creation", icon: "services-icon-2.svg" },
-              { text: "Social Media Management", icon: "services-icon-3.svg" },
-              { text: "Influencer Marketing", icon: "services-icon-4.svg" },
-              { text: "Search Engine Optimization (SEO)", icon: "services-icon-5.svg" },
+              { text: "Linkedin Personal Branding", icon: "services-icon-1.svg" },
+              { text: "Content Strategy & Writing", icon: "services-icon-2.svg" },
+              { text: "Influencer Marketing  (2500 + influencers)", icon: "services-icon-4.svg" },
+              { text: "Blogs, Article, Social Content Writing", icon: "services-icon-3.svg" },
+              { text: "Digital Brand Strategy", icon: "services-icon-5.svg" },
             ].map((service, index) => (
               <div key={index} className="flex flex-col items-center justify-center w-full">
                 <img
@@ -35,24 +35,22 @@ function Services() {
 
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900">
-              The AccioContent Effect
+            The Virtual Snipers Impact
             </h2>
           </div>
           <div className="text-center mb-8">
             <p className="text-sm sm:text-base md:text-lg">
-              When you partner with AccioContent, our team of skilled wordsmiths
-              and branding enchanters will conjure up a powerful personal brand
-              that delivers:
+            When you collaborate with us, our team of expert strategists and content creators will craft a personal brand that delivers powerful results.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-8">
             {[
-              { text: "More high-quality client inquiries", icon: "content-effect-icon-1.svg" },
-              { text: "Enhanced reputation and credibility", icon: "services-icon-2.svg" },
-              { text: "Improved client engagement and retention", icon: "content-effect-icon-1.svg" },
-              { text: "Greater online visibility and search engine ranking", icon: "content-effect-icon-4.svg" },
-              { text: "Increased revenue through strategic lead generation", icon: "content-effect-icon-5.svg" },
+              { text: "Top search rankings", icon: "content-effect-icon-1.svg" },
+              { text: "High-quality Enquiries / Leads", icon: "services-icon-2.svg" },
+              { text: "Constant Revenue Growth", icon: "content-effect-icon-1.svg" },
+              { text: "Stronger Reputation & Credibility", icon: "content-effect-icon-4.svg" },
+              { text: "Boost Prospect / Client engagement", icon: "content-effect-icon-5.svg" },
             ].map((effect, index) => (
               <div key={index} className="flex flex-col items-center justify-center w-full">
                 <img

@@ -16,7 +16,7 @@ function GetAQuote() {
           <h2 className="text-center text-4xl md:text-5xl text-white font-bold mb-12">
             Get A Quote
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* Card 1 */}
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <div className="flex items-center justify-between mb-4">
@@ -30,23 +30,21 @@ function GetAQuote() {
                 </span>
               </div>
               <h3 className="text-2xl font-semibold mb-4">
-                Personal Brand Builder
+                Personal Brand Starter Package
               </h3>
               <p className="mb-6">
-                Perfect for individuals who need a foundational personal branding
-                strategy and guidance to kick-start their brand-building efforts.
+                Perfect for individuals who need to get a sense of personal
+                branding strategy and guidance to get started on their own.
               </p>
               <h5 className="font-semibold mb-2">Includes :</h5>
               <ul className="list-disc list-inside space-y-2">
                 {[
-                  "Bi-weekly 30-minute progress review and assistance",
-                  "Optimization of two social media profiles (your choice)",
-                  "Customized personal branding action plan",
-                  "Ghostwriting and editing of thought leadership content (4 pieces per month)",
-                  "2 short videos based on specialization (Editing)",
-                  "1 LinkedIn Live",
-                  "1 Video Interview on YouTube",
-                  "4 Extra Posts related to other achievements, team, etc.",
+                  "15 mins Discovery Call ",
+                  "One Weekly 15-minute progress review",
+                  "Instagram or Linkedin or Youtube Profile Optimization.",
+                  "Customized personal branding Content plan",
+                  "Content Support for 2 short videos and Editing.",
+                  "8 Posts based on content plan for Insta / Linkedin OR 4 video editing for Youtube,",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <img
@@ -71,27 +69,69 @@ function GetAQuote() {
                 <span className="ml-4 text-xl font-extrabold">Package 2</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4">
-                Personal Brand Legacy Builder
+                Personal Brand Premium Package
               </h3>
               <p className="mb-6">
-                A comprehensive, high-touch program for individuals who want to
-                accelerate their personal brand growth and make a significant
-                impact in their industry or niche.
+                Perfect for Entrepreneurs who know they need to move to the next
+                level in their careers / business and want professional guidance
+                & support.
               </p>
               <h5 className="font-semibold mb-2">Includes :</h5>
               <ul className="list-disc list-inside space-y-2">
                 {[
-                  "Bi-weekly 30-minute progress review and assistance",
-                  "Personal brand crisis management and reputation monitoring services",
-                  "Optimization of two social media profiles (your choice)",
-                  "Customized personal branding action plan",
-                  "Ghostwriting and editing of thought leadership content (6 pieces per month)",
-                  "Connecting to resources for Media Coverage",
-                  "Access to a curated selection of personal branding resources",
-                  "2 short videos based on specialization",
-                  "2 LinkedIn Live",
-                  "1 Video Interview on YT",
-                  "8 Extra Posts related to other achievements, team, etc.",
+                  "60 mins Discovery Call.",
+                  "30 Min strategy discussion call.",
+                  "Two Weekly 15-minute progress reviews.",
+                  "Linkedin or Youtube Profile Optimization.",
+                  "Customized Personal Branding Strategy and Content plan Monthly Content Calendar.",
+                  "4 Thought leadership content / Authority Articles per month.",
+                  "Content / Script Support for 4 short videos and Editing (reels / shorts).",
+                  "15 Posts as per content strategy and plan. ",
+                  "Monthly Online PR Plan",
+                  "Speaker Positions / Panelist for Industry Specific Events",
+                  "Interviews with Popular channels on youtube etc",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <img
+                      src="https://acciocontent.com/_next/static/media/dots.c564385b.svg"
+                      alt="check"
+                      className="h-6 w-6 mr-2"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="flex items-center justify-between mb-4">
+                <img
+                  src="https://acciocontent.com/brand2.svg"
+                  alt="package-icon"
+                  className="h-12 w-12"
+                />
+                <span className="ml-4 text-xl font-extrabold text-[#b13035]">
+                  Package 3
+                </span>
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">
+              Custom Linkedin Personal Branding
+              </h3>
+              <p className="mb-6">
+              Perfect for Professionals who want to advance career growth​ foster valuable connections, and generate professional opportunities. Helps establish a thought leadership position with expert guidance & support. 
+              </p>
+              <h5 className="font-semibold mb-2">Includes :</h5>
+              <ul className="list-disc list-inside space-y-2">
+                {[
+                  "45 mins Discovery Call", 
+                  "One Weekly 15-minute progress reviews.",
+                  "Linkedin Profile Optimization.",
+                  "Customized Linkedin Personal Branding Strategy and Content plan.",
+                  "Linkedin Content Calendar.",
+                  "4 Thought leadership content / Authority Articles per month.",
+                  "20 posts per month including Carousels, Statics & Videos (editing only).",
+                  "1 online PR article per month."                  
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <img
@@ -106,13 +146,12 @@ function GetAQuote() {
             </div>
           </div>
         </div>
+        <div className="flex items-center justify-center my-8 text-2xl relative z-10">
+          <button className="bg-[#fd454c] text-white font-semibold py-4 px-8 rounded-md hover:bg-red-600 transition-colors duration-300">
+            Book Your Consultation Directly
+          </button>
+        </div>
       </section>
-
-      <div className="flex items-center justify-center mb-5 text-2xl">
-        <button className="bg-[#fd454c] text-white font-semibold py-4 px-8 rounded-md hover:bg-red-600 transition-colors duration-300">
-          Book Your Consultation Directly
-        </button>
-      </div>
 
       {/* <section className="relative py-16 bg-gray-50">
         // Background Image

@@ -45,7 +45,7 @@ const FAQ = () => {
   return (
     <section className="flex flex-col justify-center max-w-full py-12 bg-[#f6f0ee] px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col justify-center max-w-5xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-6 sm:mb-8">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-6 sm:mb-8 pt-3">
           FAQ's
         </h1>
         <div className="space-y-4">

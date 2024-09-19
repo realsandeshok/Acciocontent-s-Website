@@ -12,11 +12,11 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-white text-[#2f4858] py-4 px-4 shadow-md fixed top-0 left-0 w-full z-50">
+    <nav className="bg-white text-[#2f4858] py-3 px-4 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <a href="/" className="flex-shrink-0">
           <img
-            src="https://acciocontent.com/accio-logo.jpg"
+            src="https://virtualsnipers.com/assets/theme/images/logo.jpg"
             alt="AccioContent Logo"
             className="h-10"
           />
@@ -58,7 +58,7 @@ function Navbar() {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-white text-[#2f4858] shadow-md mt-2">
-          <div className="px-4 pt-4 pb-6 space-y-4">
+          <div className="px-4 py-4 space-y-4">
             <a href="#about" onClick={handleLinkClick} className="block py-2 px-4 hover:bg-gray-100">About</a>
             <a href="#ourpurpose" onClick={handleLinkClick} className="block py-2 px-4 hover:bg-gray-100">Our Purpose</a>
             <a href="#services" onClick={handleLinkClick} className="block py-2 px-4 hover:bg-gray-100">Services</a>

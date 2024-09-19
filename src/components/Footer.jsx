@@ -9,11 +9,12 @@ function Footer() {
           <div className="mb-6">
             <h3 className="text-lg font-bold mb-3">Address</h3>
             <p>
-              AccioContent Inc.<br />
-              1234 Magic Avenue<br />
-              Enchanted City, EC 56789<br />
-              Email: info@acciocontent.com<br />
-              Phone: +1 (234) 567-890
+              Virtual Snipers.<br />
+              604, A-Wing, Uphar, Ashok Van,<br />
+              Dahisar East,<br />
+              Mumbai, Maharashtra 400068<br />
+              {/* Email: info@acciocontent.com<br /> */}
+              Phone: 099676 33300
             </p>
           </div>
 
@@ -75,7 +76,7 @@ function Footer() {
 
       <div className="mt-8 border-t border-gray-700 pt-4">
         <p className="text-center text-gray-400">
-          &copy; {new Date().getFullYear()} AccioContent Inc. All rights reserved.
+          &copy; {new Date().getFullYear()} Virtual Snipers. All rights reserved.
         </p>
       </div>
     </footer>

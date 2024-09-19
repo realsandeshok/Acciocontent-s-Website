@@ -3,7 +3,7 @@ import Profile from "../components/Profile";
 
 const Team = () => {
   return (
-    <section className="py-10 px-6 md:px-12 lg:px-20 bg-white">
+    <section className=" px-6 md:px-12 lg:px-20 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl text-center font-bold text-[#373b47] py-8 md:py-12 lg:py-14">
