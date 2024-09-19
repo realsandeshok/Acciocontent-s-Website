@@ -56,6 +56,11 @@ function GetAQuote() {
                   </li>
                 ))}
               </ul>
+              <div className="flex items-center justify-center text-sm align-bottom pt-[17.5rem]">
+                <button className="bg-[#fd454c] text-white min-w-60 font-semibold py-4 px-4 rounded-md hover:bg-red-600 transition-colors duration-300">
+                  Speak to an Expert
+                </button>
+              </div>
             </div>
 
             {/* Card 2 */}
@@ -101,6 +106,11 @@ function GetAQuote() {
                   </li>
                 ))}
               </ul>
+              <div className="flex items-center justify-center text-sm align-bottom pt-[40px]">
+                <button className="bg-[#fd454c] min-w-60 text-white font-semibold py-4 px-4 rounded-md hover:bg-red-600 transition-colors duration-300">
+                  Schedule Personal Brand Consultation
+                </button>
+              </div>
             </div>
 
             {/* Card 3 */}
@@ -116,22 +126,25 @@ function GetAQuote() {
                 </span>
               </div>
               <h3 className="text-2xl font-semibold mb-4">
-              Custom Linkedin Personal Branding
+                Custom Linkedin Personal Branding
               </h3>
               <p className="mb-6">
-              Perfect for Professionals who want to advance career growth​ foster valuable connections, and generate professional opportunities. Helps establish a thought leadership position with expert guidance & support. 
+                Perfect for Professionals who want to advance career growth​
+                foster valuable connections, and generate professional
+                opportunities. Helps establish a thought leadership position
+                with expert guidance & support.
               </p>
               <h5 className="font-semibold mb-2">Includes :</h5>
               <ul className="list-disc list-inside space-y-2">
                 {[
-                  "45 mins Discovery Call", 
+                  "45 mins Discovery Call",
                   "One Weekly 15-minute progress reviews.",
                   "Linkedin Profile Optimization.",
                   "Customized Linkedin Personal Branding Strategy and Content plan.",
                   "Linkedin Content Calendar.",
                   "4 Thought leadership content / Authority Articles per month.",
                   "20 posts per month including Carousels, Statics & Videos (editing only).",
-                  "1 online PR article per month."                  
+                  "1 online PR article per month.",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <img
@@ -143,13 +156,13 @@ function GetAQuote() {
                   </li>
                 ))}
               </ul>
+              <div className="flex items-center justify-center text-sm align-bottom pt-[10rem]">
+                <button className="bg-[#fd454c] text-white min-w-60 font-semibold py-4 px-4 rounded-md hover:bg-red-600 transition-colors duration-300">
+                  Consult Linked Expert
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex items-center justify-center my-8 text-2xl relative z-10">
-          <button className="bg-[#fd454c] text-white font-semibold py-4 px-8 rounded-md hover:bg-red-600 transition-colors duration-300">
-            Book Your Consultation Directly
-          </button>
         </div>
       </section>
 

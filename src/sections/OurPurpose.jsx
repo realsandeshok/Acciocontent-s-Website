@@ -1,5 +1,4 @@
 import React from "react";
-import MissionCard from "../components/MissionCard";
 
 const OurPurpose = () => {
   return (

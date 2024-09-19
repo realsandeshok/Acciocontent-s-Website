@@ -5,7 +5,7 @@ function Branding() {
     <section className="flex flex-col-reverse lg:flex-row items-center justify-between  mx-2 sm:mx-5  md:mx-12 lg:mx-18">
       <div className="flex-1 lg:w-1/2 px-2">
         <h2 className="text-xl sm:text-3xl font-bold text-gray-900 py-3">
-          Why Branding?
+          Why Personal Branding?
         </h2>
         <p className="text-sm sm:text-lg  text-gray-700 font-semibold">
           Branding is your core identity. Personal branding is about being
