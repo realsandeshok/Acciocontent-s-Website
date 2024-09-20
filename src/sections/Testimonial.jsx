@@ -19,25 +19,49 @@ export const Testimonial = () => {
           <div className="flex justify-center md:col-span-1 lg:col-span-1">
             <TestimonialsCard
               image="https://acciocontent.com/client-comma.svg"
-              name="Varun Nagrath"
-              role="Partner, Professional Firm"
-              testimonial="Working with Priyanka and team for the past 3-4 months has been an absolute pleasure. Team Acciocontent helped us with producing timely and relative content and navigating various struggles that firms usually face with Marketing and such other ancillary services. Considering the fact that we are a 50+ year old firm, we had various and challenging requirements which were dealt with expertly by Accioconent. They go the extra-mile and have posted content even on weekends which amplifies the fact that they have treated our firm like their own firm. Their team is very responsive and professional and we could not be happier. Highly recommended."
+              name="Neha"
+              role="Bussiness Owner - Exports"
+              testimonial="Virtual Snipers transformed our content strategy with exceptional, targeted copy that truly speaks to our audience. Their attention to detail and ability to capture our brand's voice is unmatched"
             />
           </div>
           <div className="flex justify-center md:col-span-1 lg:col-span-1">
             <TestimonialsCard
               image="https://acciocontent.com/client-comma.svg"
-              name="Deepankar Kumar"
-              role="Professional"
-              testimonial="AccioContent transformed my online presence. It helped me to optimize my online presence. They helped to remove the following issues- limited presence in the market, limited brand recognition, uncertain growth prospects, time constraints, and limited employee benefits. Your contributions have helped me to grow and thrive. I am deeply appreciative of your patronage, and I couldn't have done it without you. Thank you for your support, it means the world to me. Your contributions have been instrumental in my success. I am very grateful to the entire team of AccioContent for their inconsistent support, and dedication. They always stand for people and organizations to produce exceptional results consistently."
+              name="Siddhant"
+              role="Ed-Tech Entrepreneur"
+              testimonial="The content delivered by Virtual Snipers has been consistently outstanding. They not only understood our complex industry but also communicated our message in a way that was both clear and engaging for our clients."
             />
           </div>
           <div className="flex justify-center md:col-span-2 lg:col-span-1">
             <TestimonialsCard
               image="https://acciocontent.com/client-comma.svg"
-              name="Anup A."
-              role="Professional"
-              testimonial="Despite my extensive experience across various fields, enhancing the network has always been a challenge for me. However, discovering AccioContent has completely transformed my perspective. Their expertise in branding and networking is unparalleled. They have not only saved me a significant amount of time but also delivered results that exceeded my highest expectations. The innovative strategies they developed have been instrumental in the success and growth of my network and work. AccioContent has truly been of great assistance in my professional prospects."
+              name="Emily"
+              role="Leadership Consultant"
+              testimonial="Working with Virtual Snipers has elevated my personal brand in ways I never imagined. Their strategy made my expertise stand out, and I’ve seen a significant increase in professional opportunities"
+            />
+          </div>
+          <div className="flex justify-center md:col-span-2 lg:col-span-1">
+            <TestimonialsCard
+              image="https://acciocontent.com/client-comma.svg"
+              name="Hele Yu"
+              role="Finance Leader"
+              testimonial="Virtual Snipers helped craft a personal branding strategy that not only reflected who I am but positioned me as an industry leader. Their expertise is a game-changer for anyone looking to level up their personal brand."
+            />
+          </div>
+          <div className="flex justify-center md:col-span-2 lg:col-span-1">
+            <TestimonialsCard
+              image="https://acciocontent.com/client-comma.svg"
+              name="Raj"
+              role="TBFC"
+              testimonial="Virtual Snipers' social media content is on another level. They know how to keep our audience engaged and our brand visible. Our social media presence has never been this dynamic!"
+            />
+          </div>
+          <div className="flex justify-center md:col-span-2 lg:col-span-1">
+            <TestimonialsCard
+              image="https://acciocontent.com/client-comma.svg"
+              name="Suke"
+              role="Ecommerce Entrepreneur"
+              testimonial="Thanks to Virtual Snipers, our social media content is both consistent and compelling. Their creative approach has helped us build a loyal following and generate meaningful engagement."
             />
           </div>
         </div>

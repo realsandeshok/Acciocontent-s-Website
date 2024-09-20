@@ -8,31 +8,22 @@ export default function Component() {
       />
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-xl sm:text-2xl text-white mb-4">
-          Feeling Like a Personal Brand Muggle?
+        Struggling to Stand Out? 
         </h2>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
           <span className="block sm:inline">
-            AccioContent <span className="text-red-500">Awakens Your</span>
+            Hire Virtual Snipers for <span className="text-red-500">Your Transformation</span>
           </span>
           <span className="block">
-            <span className="text-red-500">Marketing Magic</span> Within.
+            <span className="text-red-500">Into A</span> Personal Brand.
           </span>
         </h1>
         <p className="text-xl sm:text-2xl text-white mb-8">
-          Where Content Casts Spells and Brands Excel!
+        Where Expert Content Transforms You into a Popular Brand!
         </p>
         <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full text-lg">
-          Book a call
+          Book a call Today !
         </button>
-        <p className=" max-w-4xl relative z-10 text-white text-center py-8 px-2 text-xl">
-          Struggling to Stand Out? 
-          <br /> 
-          Hire Virtual Snipers Your Image
-          Transformation into a Personal Brand. 
-          <br />
-          Where Expert Content Transforms
-          You into a Popular Brand! Book a Call Today!
-        </p>
       </div>
       {/* <div className="relative z-10"> */}
       {/* </div> */}
