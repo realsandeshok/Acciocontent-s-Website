@@ -13,7 +13,7 @@ function Navbar() {
 
   return (
     <nav className="bg-white text-[#2f4858] py-3 px-4 shadow-md fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="max-w-[88rem] mx-auto flex justify-between items-center">
         <a href="/" className="flex-shrink-0">
           <img
             src="https://virtualsnipers.com/assets/theme/images/logo.jpg"
@@ -31,6 +31,7 @@ function Navbar() {
           <a href="#getaquote" className="hover:text-gray-300 text-sm md:text-base">Get A Quote</a>
           <a href="#team" className="hover:text-gray-300 text-sm md:text-base">Team</a>
           <a href="#faqs" className="hover:text-gray-300 text-sm md:text-base">FAQs</a>
+          <a href="#schedulemeeting" className="hover:text-gray-300 text-sm md:text-base">Contact Us</a>
         </div>
         {/* "Book a Call" button for larger screens */}
         <div className="hidden lg:flex">
@@ -67,6 +68,7 @@ function Navbar() {
             <a href="#getaquote" onClick={handleLinkClick} className="block py-2 px-4 hover:bg-gray-100">Get A Quote</a>
             <a href="#team" onClick={handleLinkClick} className="block py-2 px-4 hover:bg-gray-100">Team</a>
             <a href="#faqs" onClick={handleLinkClick} className="block py-2 px-4 hover:bg-gray-100">FAQs</a>
+            <a href="#schedulemeeting" onClick={handleLinkClick} className="block py-2 px-4 hover:bg-gray-100">Contact Us</a>
             <button className="w-full text-center bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
               Book a Call
             </button>
