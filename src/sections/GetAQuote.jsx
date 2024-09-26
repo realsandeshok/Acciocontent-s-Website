@@ -1,177 +1,520 @@
-import React from "react";
+import React, { useState } from "react";
 
 function GetAQuote() {
-  return (
-    <>
-      <section className="relative py-16 bg-gray-50">
-        {/* Background Image */}
-        <div className="absolute inset-0">
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    contactNumber: "",
+    platform: "",
+    platformUrl: "",
+  });
+
+  // const [secondFormData, setSecondFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   contactNumber: "",
+  //   platform: "",
+  //   platformUrl: "",
+  //   currentOccupation: "",
+  //   age: "",
+  //   city: "",
+  //   emailOtp: "",
+  // });
+
+  const handleOpenModal = (packageName) => {
+    setSelectedPackage(packageName);
+    setIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      contactNumber: "",
+      platform: "",
+      platformUrl: "",
+    });
+    setFormData({
+      name: "",
+      email: "",
+      contactNumber: "",
+      platform: "",
+      platformUrl: "",
+      currentOccupation: "",
+      age: "",
+      city: "",
+      emailOtp: "",
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted for package:", selectedPackage, formData);
+    setIsOpen(false);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const renderCard = (
+    packageNumber,
+    title,
+    description,
+    features,
+    buttonText,
+    isSpecial = false
+  ) => (
+    <div
+      className={`p-8 rounded-2xl shadow-lg flex flex-col justify-between ${
+        isSpecial ? "bg-[#b13035] text-white" : "bg-white"
+      }`}
+    >
+      <div className="mb-14">
+        <div className="flex items-center justify-between mb-4">
           <img
-            src="https://acciocontent.com/pricingbg.png"
-            alt="package-bg"
-            className="w-full h-full object-cover"
+            src={`https://acciocontent.com/${
+              isSpecial ? "legacy1" : "brand2"
+            }.svg`}
+            alt="package-icon"
+            className="h-12 w-12"
           />
+          <span
+            className={`ml-4 text-xl font-extrabold ${
+              isSpecial ? "" : "text-[#b13035]"
+            }`}
+          >
+            {packageNumber}
+          </span>
         </div>
-        <div className="container mx-auto relative z-10 px-4 md:px-8">
-          <h2 className="text-center text-4xl md:text-5xl text-white font-bold mb-12">
-            Get A Quote
-          </h2>
-          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {/* Card 1 */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg flex flex-col justify-between">
-              <div  className="mb-14">
-                <div className="flex items-center justify-between mb-4">
-                  <img
-                    src="https://acciocontent.com/brand2.svg"
-                    alt="package-icon"
-                    className="h-12 w-12"
-                  />
-                  <span className="ml-4 text-xl font-extrabold text-[#b13035]">
-                    Package 1
-                  </span>
-                </div>
-                <h3 className="text-2xl font-semibold mb-4">
-                  Personal Brand Starter Package
-                </h3>
-                <p className="mb-6">
-                  Perfect for individuals who need to get a sense of personal
-                  branding strategy and guidance to get started on their own.
-                </p>
-                <h5 className="font-semibold mb-2">Includes :</h5>
-                <ul className="list-disc list-inside space-y-2">
-                  {[
-                    "15 mins Discovery Call ",
-                    "One Weekly 15-minute progress review",
-                    "Instagram or Linkedin or Youtube Profile Optimization.",
-                    "Customized personal branding Content plan",
-                    "Content Support for 2 short videos and Editing.",
-                    "8 Posts based on content plan for Insta / Linkedin OR 4 video editing for Youtube,",
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <img
-                        src="https://acciocontent.com/_next/static/media/dots.c564385b.svg"
-                        alt="check"
-                        className="h-6 w-6 mr-2"
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex items-center justify-center mt-auto">
-                <button className="bg-[#fd454c] text-white min-w-60 font-semibold py-4 px-4 rounded-md hover:bg-red-600 transition-colors duration-300">
-                  Speak to an Expert
-                </button>
-              </div>
-            </div>
+        <h3 className="text-2xl font-semibold mb-4">{title}</h3>
+        <p className="mb-6">{description}</p>
+        <h5 className="font-semibold mb-2">Includes :</h5>
+        <ul className="list-disc list-inside space-y-2">
+          {features.map((item, index) => (
+            <li key={index} className="flex items-start">
+              <img
+                src="https://acciocontent.com/_next/static/media/dots.c564385b.svg"
+                alt="check"
+                className="h-6 w-6 mr-2"
+              />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="flex items-center justify-center mt-auto">
+        <button
+          className="bg-[#fd454c] text-white min-w-60 font-semibold py-4 px-4 rounded-md hover:bg-red-600 transition-colors duration-300"
+          onClick={() => handleOpenModal(title)}
+        >
+          {buttonText}
+        </button>
+      </div>
+    </div>
+  );
 
-            {/* Card 2 */}
-            <div className="p-8 rounded-2xl shadow-lg bg-[#b13035] text-white flex flex-col justify-between">
-              <div className="mb-14">
-                <div className="flex items-center justify-between mb-4">
-                  <img
-                    src="https://acciocontent.com/legacy1.svg"
-                    alt="package-icon"
-                    className="h-12 w-12"
+  const renderForm = () => {
+    if (selectedPackage === "Personal Brand Starter Package") {
+      return (
+        <>
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg max-w-md mx-auto">
+              <h2 className="text-xl font-bold mb-4">
+                Thank you for choosing the {selectedPackage}. Kindly provide the
+                below information.
+              </h2>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label
+                    htmlFor="contactNumber"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Contact Number
+                  </label>
+                  <input
+                    id="contactNumber"
+                    name="contactNumber"
+                    type="text"
+                    value={formData.contactNumber}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
                   />
-                  <span className="ml-4 text-xl font-extrabold">Package 2</span>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">
-                  Personal Brand Premium Package
-                </h3>
-                <p className="mb-6">
-                  Perfect for Entrepreneurs who know they need to move to the
-                  next level in their careers / business and want professional
-                  guidance & support.
-                </p>
-                <h5 className="font-semibold mb-2">Includes :</h5>
-                <ul className="list-disc list-inside space-y-2">
-                  {[
-                    "60 mins Discovery Call.",
-                    "30 Min strategy discussion call.",
-                    "Two Weekly 15-minute progress reviews.",
-                    "Linkedin or Youtube Profile Optimization.",
-                    "Customized Personal Branding Strategy and Content plan Monthly Content Calendar.",
-                    "4 Thought leadership content / Authority Articles per month.",
-                    "Content / Script Support for 4 short videos and Editing (reels / shorts).",
-                    "15 Posts as per content strategy and plan. ",
-                    "Monthly Online PR Plan",
-                    "Speaker Positions / Panelist for Industry Specific Events",
-                    "Interviews with Popular channels on youtube etc",
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <img
-                        src="https://acciocontent.com/_next/static/media/dots.c564385b.svg"
-                        alt="check"
-                        className="h-6 w-6 mr-2"
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex items-center justify-center mt-auto">
-                <button className="bg-[#fd454c] min-w-60 text-white font-semibold py-4 px-4 rounded-md hover:bg-red-600 transition-colors duration-300">
-                  Schedule Personal Brand Consultation
-                </button>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg flex flex-col justify-between">
-              <div  className="mb-14">
-                <div className="flex items-center justify-between mb-4">
-                  <img
-                    src="https://acciocontent.com/brand2.svg"
-                    alt="package-icon"
-                    className="h-12 w-12"
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
                   />
-                  <span className="ml-4 text-xl font-extrabold text-[#b13035]">
-                    Package 3
-                  </span>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">
-                  Custom Linkedin Personal Branding
-                </h3>
-                <p className="mb-6">
-                  Perfect for Professionals who want to advance career growth​,
-                  foster valuable connections, and generate professional
-                  opportunities. Helps establish a thought leadership position
-                  with expert guidance & support.
-                </p>
-                <h5 className="font-semibold mb-2">Includes :</h5>
-                <ul className="list-disc list-inside space-y-2">
-                  {[
-                    "45 mins Discovery Call",
-                    "One Weekly 15-minute progress reviews.",
-                    "Linkedin Profile Optimization.",
-                    "Customized Linkedin Personal Branding Strategy and Content plan.",
-                    "Linkedin Content Calendar.",
-                    "4 Thought leadership content / Authority Articles per month.",
-                    "20 posts per month including Carousels, Statics & Videos (editing only).",
-                    "1 online PR article per month.",
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <img
-                        src="https://acciocontent.com/_next/static/media/dots.c564385b.svg"
-                        alt="check"
-                        className="h-6 w-6 mr-2"
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex items-center justify-center mt-auto">
-                <button className="bg-[#fd454c] text-white min-w-60 font-semibold py-4 px-4 rounded-md hover:bg-red-600 transition-colors duration-300">
-                  Consult Linked Expert
+                <div>
+                  <label
+                    htmlFor="platform"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Brand Platform
+                  </label>
+                  <select
+                    id="platform"
+                    name="platform"
+                    value={formData.platform}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  >
+                    <option value="">Select 1</option>
+                    <option value="Linkedin">LinkedIn</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Youtube">YouTube</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="platformUrl"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Platform URL / Handle
+                  </label>
+                  <input
+                    id="platformUrl"
+                    name="platformUrl"
+                    value={formData.platformUrl}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Email Id
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#fd454c] text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600"
+                >
+                  Submit
                 </button>
-              </div>
+              </form>
+              <button className="mt-4 text-gray-500" onClick={handleCloseModal}>
+                Cancel
+              </button>
             </div>
           </div>
+        </>
+      );
+    } else if (
+      selectedPackage === "Personal Brand Premium Package" ||
+      selectedPackage === "Custom Linkedin Personal Branding"
+    ) {
+      return (
+        <>
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg max-w-md mx-auto h-auto max-h-[90vh] overflow-y-auto">
+              <h2 className="text-xl font-bold mb-4">
+                Welcome, to schedule your discovery call we need the below
+                information.
+              </h2>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label
+                    htmlFor="contactNumber"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Contact Number
+                  </label>
+                  <input
+                    id="contactNumber"
+                    name="contactNumber"
+                    type="text"
+                    value={formData.contactNumber}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="platform"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Brand Platform
+                  </label>
+                  <select
+                    id="platform"
+                    name="platform"
+                    value={formData.platform}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  >
+                    <option value="">Select 1</option>
+                    <option value="Linkedin">LinkedIn</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Youtube">YouTube</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="platformUrl"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Platform URL / Handle
+                  </label>
+                  <input
+                    id="platformUrl"
+                    name="platformUrl"
+                    value={formData.platformUrl}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Email Id
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="currentOccupation"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Current Occupation
+                  </label>
+                  <select
+                    id="currentOccupation"
+                    name="currentOccupation"
+                    value={formData.currentOccupation}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  >
+                    <option value="">Select</option>
+                    <option value="Salaried">Salaried</option>
+                    <option value="Salary + Freelance">
+                      Salary + Freelance
+                    </option>
+                    <option value="Entrepreneur">Entrepreneur</option>
+                    <option value="Full Time Freelancer">
+                      Full-Time Freelancer
+                    </option>
+                    <option value="Seeking New Opportunities">
+                      Seeking New Opportunities
+                    </option>
+                    <option value="Retired">Retired</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="age"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Age
+                  </label>
+                  <select
+                    id="age"
+                    name="age"
+                    value={formData.age}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  >
+                    <option value="">Select Age Group</option>
+                    <option value="18-25">18-25 years</option>
+                    <option value="26-35">26-35 years</option>
+                    <option value="36-45">36-45 years</option>
+                    <option value="46-60">46-60 years</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="city"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your City
+                  </label>
+                  <input
+                    id="city"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="emailOtp"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Email OTP
+                  </label>
+                  <input
+                    id="emailOtp"
+                    name="emailOtp"
+                    value={formData.emailOtp}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#fd454c] text-white py-2 rounded mt-4"
+                >
+                  Submit
+                </button>
+                <button
+                  className="mt-4 text-gray-500"
+                  onClick={handleCloseModal}
+                >
+                  Cancel
+                </button>
+              </form>
+            </div>
+          </div>
+        </>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <section className="relative py-16 bg-gray-50">
+      <div className="absolute inset-0">
+        <img
+          src="https://acciocontent.com/pricingbg.png"
+          alt="package-bg"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="container mx-auto relative z-10 px-4 md:px-8">
+        <h2 className="text-center text-4xl md:text-5xl text-white font-bold mb-12">
+          Get A Quote
+        </h2>
+        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {renderCard(
+            "Package 1",
+            "Personal Brand Starter Package",
+            "Perfect for individuals who need to get a sense of personal branding strategy and guidance to get started on their own.",
+            [
+              "15 mins Discovery Call ",
+              "One Weekly 15-minute progress review",
+              "Instagram or Linkedin or Youtube Profile Optimization.",
+              "Customized personal branding Content plan",
+              "Content Support for 2 short videos and Editing.",
+              "8 Posts based on content plan for Insta / Linkedin OR 4 video editing for Youtube,",
+            ],
+            "Speak to an Expert"
+          )}
+          {renderCard(
+            "Package 2",
+            "Personal Brand Premium Package",
+            "Perfect for Entrepreneurs who know they need to move to the next level in their careers/business and want professional guidance & support.",
+            [
+              "60 mins Discovery Call.",
+              "30 Min strategy discussion call.",
+              "Two Weekly 15-minute progress reviews.",
+              "Linkedin or Youtube Profile Optimization.",
+              "Customized Personal Branding Strategy and Content plan Monthly Content Calendar.",
+              "4 Thought leadership content / Authority Articles per month.",
+              "Content / Script Support for 4 short videos and Editing (reels / shorts).",
+              "15 Posts as per content strategy and plan.",
+              "Monthly Online PR Plan",
+              "Speaker Positions / Panelist for Industry-Specific Events",
+              "Interviews with Popular channels on youtube, etc",
+            ],
+            "Schedule Personal Brand Consultation",
+            true
+          )}
+          {renderCard(
+            "Package 3",
+            "Custom Linkedin Personal Branding",
+            "Perfect for Professionals who want to advance career growth​, foster valuable connections, and generate professional opportunities. Helps establish a thought leadership position with expert guidance & support.",
+            [
+              "45 mins Discovery Call",
+              "One Weekly 15-minute progress reviews.",
+              "Linkedin Profile Optimization.",
+              "Customized Linkedin Personal Branding Strategy and Content plan.",
+              "Linkedin Content Calendar.",
+              "4 Thought leadership content / Authority Articles per month.",
+              "20 posts per month including Carousels, Statics & Videos (editing only).",
+              "1 online PR article per month.",
+            ],
+            "Consult LinkedIn Expert"
+          )}
         </div>
-      </section>
-    </>
+      </div>
+      {isOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded shadow-lg max-w-lg w-full">
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+            >
+              &times;
+            </button>
+            {renderForm()}
+          </div>
+        </div>
+      )}
+    </section>
   );
 }
 
