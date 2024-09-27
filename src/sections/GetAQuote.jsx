@@ -3,40 +3,23 @@ import React, { useState } from "react";
 function GetAQuote() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState("");
+  const [status, setStatus] = useState({ message: "", success: null });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     contactNumber: "",
     platform: "",
     platformUrl: "",
+    currentOccupation: "",
+    age: "",
+    city: "",
   });
-
-  // const [secondFormData, setSecondFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   contactNumber: "",
-  //   platform: "",
-  //   platformUrl: "",
-  //   currentOccupation: "",
-  //   age: "",
-  //   city: "",
-  //   emailOtp: "",
-  // });
 
   const handleOpenModal = (packageName) => {
     setSelectedPackage(packageName);
     setIsOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsOpen(false);
-    setFormData({
-      name: "",
-      email: "",
-      contactNumber: "",
-      platform: "",
-      platformUrl: "",
-    });
+    setStatus({ message: "", success: null }); //Reset Status
     setFormData({
       name: "",
       email: "",
@@ -46,20 +29,130 @@ function GetAQuote() {
       currentOccupation: "",
       age: "",
       city: "",
-      emailOtp: "",
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted for package:", selectedPackage, formData);
+  const handleCloseModal = () => {
     setIsOpen(false);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Initialize the form payload with common fields
+    const formPayload = {
+      service_id: "service_n5whnxa", // Your EmailJS service ID
+      template_id: "template_gqklhre", // Your EmailJS template ID
+      user_id: "OVUaLpHmnjo5uZHGl", // Your EmailJS public key (user_id)
+      template_params: {
+        from_name: formData.name,
+        from_email: formData.email,
+        to_name: "Virtual Snipers",
+        selected_package: selectedPackage,
+        contact_number: formData.contactNumber,
+        platform: formData.platform,
+        platform_url: formData.platformUrl,
+        message: "", // Will be customized based on form type
+      },
+    };
+
+    // Customize the form payload based on selected package
+    if (selectedPackage === "Personal Brand Starter Package") {
+      formPayload.template_params.message = `
+            This is a request for the ${selectedPackage}.
+            Name: ${formData.name},
+            Contact Number: ${formData.contactNumber},
+            Email ID: ${formData.email},
+            Platform: ${formData.platform}, 
+            Platform URL: ${formData.platformUrl}
+          `;
+    } else if (
+      selectedPackage === "Personal Brand Premium Package" ||
+      selectedPackage === "Custom Linkedin Personal Branding"
+    ) {
+      formPayload.template_params.message = `
+            This is a request for the ${selectedPackage}.
+            Name: ${formData.name},
+            Contact Number: ${formData.contactNumber},
+            Email ID: ${formData.email},
+            Platform: ${formData.platform}, 
+            Platform URL: ${formData.platformUrl}
+            Current Occupation: ${formData.currentOccupation},
+            Age: ${formData.age},
+            City: ${formData.city}
+          `;
+    }
+
+    // Send the email
+    try {
+      const response = await fetch(
+        "https://api.emailjs.com/api/v1.0/email/send",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formPayload),
+        }
+      );
+
+      if (response.ok) {
+        setStatus({
+          message: "Thank you! Your request has been submitted successfully.",
+          success: true,
+        });
+        // Reset form data after successful submission
+        setFormData({
+          name: "",
+          email: "",
+          contactNumber: "",
+          platform: "",
+          platformUrl: "",
+          currentOccupation: "",
+          age: "",
+          city: "",
+        });
+      } else {
+        setStatus({
+          message: "There was an issue with your submission. Please try again.",
+          success: false,
+        });
+      }
+    } catch (error) {
+      setStatus({
+        message:
+          "Something went wrong. Please check your connection and try again.",
+        success: false,
+      });
+    }
   };
+
+  const handleChange = (e) => {
+    const updatedFormData = {
+      ...formData,
+      [e.target.name]: e.target.value,
+    };
+    setFormData(updatedFormData); // Update form data directly
+  };
+
+  // const handleChangePackage1 = (e) => {
+  //   setFormDataPackage1({
+  //     ...formDataPackage1,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+  // const handleChange = (e) => {
+  //   setformData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+  // const handleChange = (e) => {
+  //   setformData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
   const renderCard = (
     packageNumber,
@@ -222,18 +315,28 @@ function GetAQuote() {
                 >
                   Submit
                 </button>
+                <button
+                  className="mt-4 text-gray-500"
+                  onClick={handleCloseModal}
+                >
+                  Cancel
+                </button>
               </form>
-              <button className="mt-4 text-gray-500" onClick={handleCloseModal}>
-                Cancel
-              </button>
+              {/* Display status message */}
+              {status.message && (
+                <div
+                  className={`text-center mt-6 font-semibold ${
+                    status.success ? "text-green-500" : "text-red-500"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
             </div>
           </div>
         </>
       );
-    } else if (
-      selectedPackage === "Personal Brand Premium Package" ||
-      selectedPackage === "Custom Linkedin Personal Branding"
-    ) {
+    } else if (selectedPackage === "Personal Brand Premium Package") {
       return (
         <>
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
@@ -398,17 +501,193 @@ function GetAQuote() {
                     className="w-full border rounded p-2 mt-1"
                   />
                 </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#fd454c] text-white py-2 rounded mt-4"
+                >
+                  Submit
+                </button>
+                <button
+                  className="mt-4 text-gray-500"
+                  onClick={handleCloseModal}
+                >
+                  Cancel
+                </button>
+              </form>
+              {/* Display status message */}
+              {status.message && (
+                <div
+                  className={`text-center mt-6 font-semibold ${
+                    status.success ? "text-green-500" : "text-red-500"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      );
+    } else if (selectedPackage === "Custom Linkedin Personal Branding") {
+      return (
+        <>
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg max-w-md mx-auto h-auto max-h-[90vh] overflow-y-auto">
+              <h2 className="text-xl font-bold mb-4">
+                Welcome, to schedule your discovery call we need the below
+                information.
+              </h2>
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label
-                    htmlFor="emailOtp"
+                    htmlFor="contactNumber"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Email OTP
+                    Contact Number
                   </label>
                   <input
-                    id="emailOtp"
-                    name="emailOtp"
-                    value={formData.emailOtp}
+                    id="contactNumber"
+                    name="contactNumber"
+                    type="text"
+                    value={formData.contactNumber}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="platform"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Brand Platform
+                  </label>
+                  <select
+                    id="platform"
+                    name="platform"
+                    value={formData.platform}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  >
+                    <option value="">Select 1</option>
+                    <option value="Linkedin">LinkedIn</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Youtube">YouTube</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="platformUrl"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Platform URL / Handle
+                  </label>
+                  <input
+                    id="platformUrl"
+                    name="platformUrl"
+                    value={formData.platformUrl}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Email Id
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="currentOccupation"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Current Occupation
+                  </label>
+                  <select
+                    id="currentOccupation"
+                    name="currentOccupation"
+                    value={formData.currentOccupation}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  >
+                    <option value="">Select</option>
+                    <option value="Salaried">Salaried</option>
+                    <option value="Salary + Freelance">
+                      Salary + Freelance
+                    </option>
+                    <option value="Entrepreneur">Entrepreneur</option>
+                    <option value="Full Time Freelancer">
+                      Full-Time Freelancer
+                    </option>
+                    <option value="Seeking New Opportunities">
+                      Seeking New Opportunities
+                    </option>
+                    <option value="Retired">Retired</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="age"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your Age
+                  </label>
+                  <select
+                    id="age"
+                    name="age"
+                    value={formData.age}
+                    onChange={handleChange}
+                    required
+                    className="w-full border rounded p-2 mt-1"
+                  >
+                    <option value="">Select Age Group</option>
+                    <option value="18-25">18-25 years</option>
+                    <option value="26-35">26-35 years</option>
+                    <option value="36-45">36-45 years</option>
+                    <option value="46-60">46-60 years</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="city"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Your City
+                  </label>
+                  <input
+                    id="city"
+                    name="city"
+                    value={formData.city}
                     onChange={handleChange}
                     required
                     className="w-full border rounded p-2 mt-1"
@@ -427,6 +706,16 @@ function GetAQuote() {
                   Cancel
                 </button>
               </form>
+              {/* Display status message */}
+              {status.message && (
+                <div
+                  className={`text-center mt-6 font-semibold ${
+                    status.success ? "text-green-500" : "text-red-500"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
             </div>
           </div>
         </>

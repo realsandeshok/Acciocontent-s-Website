@@ -10,6 +10,8 @@ const ScheduleMeeting = () => {
     urgency: "",
   });
 
+  const [status, setStatus] = useState({ message: "", success: null });
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -17,10 +19,53 @@ const ScheduleMeeting = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Submit logic here
-    console.log("Form data submitted:", formData);
+
+    // Web3Forms API URL and Access Key
+    const formEndpoint = "https://api.web3forms.com/submit";
+    const accessKey = "49010d0a-a8f2-4a32-b761-6f722939f600"; // Replace with your actual Web3Forms access key.
+
+    // Prepare form data
+    const payload = {
+      ...formData,
+      access_key: accessKey, // Add the access key to the payload
+    };
+
+    try {
+      const response = await fetch(formEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setStatus({
+          message: "Thank you! Your meeting request has been submitted successfully.",
+          success: true,
+        });
+        setFormData({
+          name: "",
+          profession: "",
+          email: "",
+          phone: "",
+          experience: "",
+          urgency: "",
+        });
+      } else {
+        setStatus({
+          message: "There was an issue with your submission. Please try again.",
+          success: false,
+        });
+      }
+    } catch (error) {
+      setStatus({
+        message: "Something went wrong. Please check your connection and try again.",
+        success: false,
+      });
+    }
   };
 
   return (
@@ -31,30 +76,28 @@ const ScheduleMeeting = () => {
       <div className="flex flex-col justify-center items-center w-full max-w-6xl bg-white shadow-md rounded-lg border border-gray-200 p-8">
         <form onSubmit={handleSubmit} className="space-y-6 w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Name */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">
-                Your Name
-              </label>
+              <label className="text-base sm:text-lg font-semibold mb-1">Your Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter Your Name"
-                className="border border-gray-300 rounded-lg p-3 shadow-sm  "
+                className="border border-gray-300 rounded-lg p-3 shadow-sm"
                 required
               />
             </div>
 
+            {/* Profession */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">
-                I am a
-              </label>
+              <label className="text-base sm:text-lg font-semibold mb-1">I am a</label>
               <select
                 name="profession"
                 value={formData.profession}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg p-3 shadow-sm "
+                className="border border-gray-300 rounded-lg p-3 shadow-sm"
                 required
               >
                 <option value="">Select Profession</option>
@@ -65,45 +108,42 @@ const ScheduleMeeting = () => {
               </select>
             </div>
 
+            {/* Email */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">
-                Email
-              </label>
+              <label className="text-base sm:text-lg font-semibold mb-1">Email</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter Your Email Id."
-                className="border border-gray-300 rounded-lg p-3 shadow-sm "
+                className="border border-gray-300 rounded-lg p-3 shadow-sm"
                 required
               />
             </div>
 
+            {/* Phone */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">
-                Phone
-              </label>
+              <label className="text-base sm:text-lg font-semibold mb-1">Phone</label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Enter Your Phone No."
-                className="border border-gray-300 rounded-lg p-3 shadow-sm "
+                className="border border-gray-300 rounded-lg p-3 shadow-sm"
                 required
               />
             </div>
 
+            {/* Experience */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">
-                Work / Business Experience
-              </label>
+              <label className="text-base sm:text-lg font-semibold mb-1">Work / Business Experience</label>
               <select
                 name="experience"
                 value={formData.experience}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg p-3 shadow-sm "
+                className="border border-gray-300 rounded-lg p-3 shadow-sm"
                 required
               >
                 <option value="">Select Experience</option>
@@ -114,15 +154,14 @@ const ScheduleMeeting = () => {
               </select>
             </div>
 
+            {/* Urgency */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">
-                My requirement is
-              </label>
+              <label className="text-base sm:text-lg font-semibold mb-1">My requirement is</label>
               <select
                 name="urgency"
                 value={formData.urgency}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg p-3 shadow-sm "
+                className="border border-gray-300 rounded-lg p-3 shadow-sm"
                 required
               >
                 <option value="">Select Urgency</option>
@@ -136,11 +175,22 @@ const ScheduleMeeting = () => {
           <div className="flex justify-center mt-6">
             <button
               type="submit"
-              className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 w-full rounded-lg shadow-md transition-colors duration-300 "
+              className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 w-full rounded-lg shadow-md transition-colors duration-300"
             >
               Schedule Meeting
             </button>
           </div>
+
+          {/* Display status message */}
+          {status.message && (
+            <div
+              className={`text-center mt-6 font-semibold ${
+                status.success ? "text-green-500" : "text-red-500"
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
         </form>
       </div>
     </section>
