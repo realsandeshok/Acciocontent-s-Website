@@ -47,6 +47,7 @@ function GetAQuote() {
       template_params: {
         from_name: formData.name,
         from_email: formData.email,
+        to_email: formData.email,
         to_name: "Virtual Snipers",
         selected_package: selectedPackage,
         contact_number: formData.contactNumber,
@@ -111,6 +112,29 @@ function GetAQuote() {
           currentOccupation: "",
           age: "",
           city: "",
+        });
+        // handleCloseModal();
+        // Prepare auto-reply email payload
+        const autoReplyPayload = {
+          service_id: "service_n5whnxa", // Your EmailJS service ID
+          template_id: "template_rirbqif", // Use the ID of your new auto-reply template
+          user_id: "OVUaLpHmnjo5uZHGl", // Your EmailJS public key (user_id)
+          template_params: {
+            to_email: formData.email, // Sender's email for auto-reply
+            from_name: formData.name, // The name of the person who filled out the form
+            selected_package: selectedPackage, // Pass the selected package
+            // your_name: "Your Name", // Replace with your name
+            // your_position: "Your Position", // Replace with your job title
+          },
+        };
+
+        // Send the auto-reply email
+        await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(autoReplyPayload),
         });
       } else {
         setStatus({
