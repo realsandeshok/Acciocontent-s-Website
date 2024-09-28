@@ -113,29 +113,6 @@ function GetAQuote() {
           age: "",
           city: "",
         });
-        // handleCloseModal();
-        // Prepare auto-reply email payload
-        const autoReplyPayload = {
-          service_id: "service_n5whnxa", // Your EmailJS service ID
-          template_id: "template_rirbqif", // Use the ID of your new auto-reply template
-          user_id: "OVUaLpHmnjo5uZHGl", // Your EmailJS public key (user_id)
-          template_params: {
-            to_email: formData.email, // Sender's email for auto-reply
-            from_name: formData.name, // The name of the person who filled out the form
-            selected_package: selectedPackage, // Pass the selected package
-            // your_name: "Your Name", // Replace with your name
-            // your_position: "Your Position", // Replace with your job title
-          },
-        };
-
-        // Send the auto-reply email
-        await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(autoReplyPayload),
-        });
       } else {
         setStatus({
           message: "There was an issue with your submission. Please try again.",
@@ -158,25 +135,6 @@ function GetAQuote() {
     };
     setFormData(updatedFormData); // Update form data directly
   };
-
-  // const handleChangePackage1 = (e) => {
-  //   setFormDataPackage1({
-  //     ...formDataPackage1,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-  // const handleChange = (e) => {
-  //   setformData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-  // const handleChange = (e) => {
-  //   setformData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
 
   const renderCard = (
     packageNumber,
