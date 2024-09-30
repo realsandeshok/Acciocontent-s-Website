@@ -103,7 +103,7 @@ function Services() {
       </section>
 
       <div className="flex items-center justify-center mb-5">
-        <a href="#schedulemeeting">
+        <a href="#getaquote">
           <button className="bg-[#fd454c] text-white font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-md hover:bg-red-600 transition-colors duration-300 text-sm sm:text-base md:text-lg">
             Book Your Consultation Directly
           </button>

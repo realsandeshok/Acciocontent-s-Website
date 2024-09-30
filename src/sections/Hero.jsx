@@ -22,7 +22,7 @@ export default function Component() {
         <p className="text-xl sm:text-2xl text-white mb-8">
           Where Expert Content Transforms You into a Popular Brand!
         </p>
-        <a href="#schedulemeeting">
+        <a href="#getaquote">
           <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full text-lg">
             Book a call Today!
           </button>

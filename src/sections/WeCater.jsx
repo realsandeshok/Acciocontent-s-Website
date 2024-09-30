@@ -57,7 +57,7 @@ const WeCater = () => {
               ... and just about everyone who wants to be successful and famous.
             </p>
             <div className="flex items-center justify-start pt-6 sm:pt-8">
-              <a href="#schedulemeeting">
+              <a href="#getaquote">
                 <button className="bg-[#fd454c] text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md hover:bg-red-600 transition-colors duration-300 text-lg sm:text-[16px]">
                   Book Your Consultation Directly
                 </button>

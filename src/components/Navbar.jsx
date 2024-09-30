@@ -71,7 +71,7 @@ function Navbar() {
         </div>
         {/* "Book a Call" button for larger screens */}
         <div className="hidden lg:flex">
-          <a href="#schedulemeeting">
+          <a href="#getaquote">
             <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
               Book a Call
             </button>
@@ -183,7 +183,7 @@ function Navbar() {
             >
               Contact Us
             </a>
-            <a href="#schedulemeeting" onClick={handleLinkClick}>
+            <a href="#getaquote" onClick={handleLinkClick}>
               <button className="w-full text-center bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                 Book a Call
               </button>

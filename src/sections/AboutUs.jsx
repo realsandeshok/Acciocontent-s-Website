@@ -27,7 +27,7 @@ const AboutUs = () => {
         </p>
       </div>
       <div className="flex items-center justify-center py-8 sm:py-10">
-        <a href="#schedulemeeting">
+        <a href="#getaquote">
           <button className="bg-[#fd454c] text-white text-lg sm:text-xl font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md hover:bg-red-600 transition-colors duration-300">
             Book Your Consultation Directly
           </button>
