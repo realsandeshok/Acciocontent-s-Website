@@ -41,9 +41,9 @@ function GetAQuote() {
 
     // Initialize the form payload with common fields
     const formPayload = {
-      service_id: "service_n5whnxa", // Your EmailJS service ID
-      template_id: "template_gqklhre", // Your EmailJS template ID
-      user_id: "OVUaLpHmnjo5uZHGl", // Your EmailJS public key (user_id)
+      service_id: "service_ouuc7ea", // Your EmailJS service ID
+      template_id: "template_xlyw089", // Your EmailJS template ID
+      user_id: "yHmQ0Vldn8e1OL3UP", // Your EmailJS public key (user_id)
       template_params: {
         from_name: formData.name,
         from_email: formData.email,

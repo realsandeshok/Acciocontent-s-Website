@@ -14,23 +14,25 @@ const AboutUs = () => {
           stories and strategies that captivate and resonate with your target
           audiences. Our journey began with a vision—to help individuals and
           businesses carve out their unique space in a crowded world. We create
-          content that shape identities who leave lasting impressions. 
+          content that shape identities who leave lasting impressions.
           <br />
         </p>
         <p className="text-center px-4 sm:px-10 lg:px-40 text-base sm:text-lg lg:text-xl my-3">
-          With years of experience, we have fine-tuned the art of building personal
-          brands to connect and inspire. Every word we write, every idea we
-          develop, is designed to elevate your brand, turning it into a beacon
-          of influence and trust. With Virtual Snipers, your brand evolves from
-          a name to an iconic presence that commands attention and respect
-          across media.
+          With years of experience, we have fine-tuned the art of building
+          personal brands to connect and inspire. Every word we write, every
+          idea we develop, is designed to elevate your brand, turning it into a
+          beacon of influence and trust. With Virtual Snipers, your brand
+          evolves from a name to an iconic presence that commands attention and
+          respect across media.
         </p>
       </div>
       <div className="flex items-center justify-center py-8 sm:py-10">
+        <a href="#schedulemeeting">
           <button className="bg-[#fd454c] text-white text-lg sm:text-xl font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md hover:bg-red-600 transition-colors duration-300">
             Book Your Consultation Directly
           </button>
-        </div>
+        </a>
+      </div>
     </section>
   );
 };

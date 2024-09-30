@@ -22,28 +22,50 @@ const ScheduleMeeting = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Web3Forms API URL and Access Key
-    const formEndpoint = "https://api.web3forms.com/submit";
-    const accessKey = "49010d0a-a8f2-4a32-b761-6f722939f600"; // Replace with your actual Web3Forms access key.
-
-    // Prepare form data
-    const payload = {
-      ...formData,
-      access_key: accessKey, // Add the access key to the payload
+    const formPayload = {
+      service_id: "service_n5whnxa", // Service ID from EmailJS
+      template_id: "template_66taxfl", // Template ID from EmailJS
+      user_id: "gs2E4Ek6WTsMaoPuh", // Public user ID from EmailJS (for authentication)
+      template_params: {
+        from_name: formData.name, // Form field 'name'
+        from_email: formData.email, // Form field 'email'
+        to_email: formData.email,
+        to_name: "Virtual Snipers",
+        profession: formData.profession, // Form field 'profession'
+        phone: formData.phone, // Form field 'phone'
+        experience: formData.experience, // Form field 'experience'
+        urgency: formData.urgency,
+        message: "",
+      },
     };
 
-    try {
-      const response = await fetch(formEndpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+    formPayload.template_params.message = `
+      This is a request to Schedule a Meeting for ${formData.name}.
+      Name: ${formData.name},
+      Contact Number: ${formData.phone},
+      Email ID: ${formData.email},
+      Profession: ${formData.profession}, 
+      Experience: ${formData.experience},
+      Urgency: ${formData.urgency}
+      `;
 
-      if (response.ok) {
+    try {
+      // Send form data via EmailJS
+      const response = await fetch(
+        "https://api.emailjs.com/api/v1.0/email/send",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formPayload),
+        }
+      );
+
+      if (response.status === 200) {
         setStatus({
-          message: "Thank you! Your meeting request has been submitted successfully.",
+          message:
+            "Thank you! Your meeting request has been submitted successfully.",
           success: true,
         });
         setFormData({
@@ -62,7 +84,8 @@ const ScheduleMeeting = () => {
       }
     } catch (error) {
       setStatus({
-        message: "Something went wrong. Please check your connection and try again.",
+        message:
+          "Something went wrong. Please check your connection and try again.",
         success: false,
       });
     }
@@ -78,7 +101,9 @@ const ScheduleMeeting = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Name */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">Your Name</label>
+              <label className="text-base sm:text-lg font-semibold mb-1">
+                Your Name
+              </label>
               <input
                 type="text"
                 name="name"
@@ -92,7 +117,9 @@ const ScheduleMeeting = () => {
 
             {/* Profession */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">I am a</label>
+              <label className="text-base sm:text-lg font-semibold mb-1">
+                I am a
+              </label>
               <select
                 name="profession"
                 value={formData.profession}
@@ -110,7 +137,9 @@ const ScheduleMeeting = () => {
 
             {/* Email */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">Email</label>
+              <label className="text-base sm:text-lg font-semibold mb-1">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -124,7 +153,9 @@ const ScheduleMeeting = () => {
 
             {/* Phone */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">Phone</label>
+              <label className="text-base sm:text-lg font-semibold mb-1">
+                Phone
+              </label>
               <input
                 type="tel"
                 name="phone"
@@ -138,7 +169,9 @@ const ScheduleMeeting = () => {
 
             {/* Experience */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">Work / Business Experience</label>
+              <label className="text-base sm:text-lg font-semibold mb-1">
+                Work / Business Experience
+              </label>
               <select
                 name="experience"
                 value={formData.experience}
@@ -156,7 +189,9 @@ const ScheduleMeeting = () => {
 
             {/* Urgency */}
             <div className="flex flex-col">
-              <label className="text-base sm:text-lg font-semibold mb-1">My requirement is</label>
+              <label className="text-base sm:text-lg font-semibold mb-1">
+                My requirement is
+              </label>
               <select
                 name="urgency"
                 value={formData.urgency}

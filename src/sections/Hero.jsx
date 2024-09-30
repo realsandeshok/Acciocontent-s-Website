@@ -8,22 +8,25 @@ export default function Component() {
       />
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-xl sm:text-2xl text-white mb-4">
-        Struggling to Stand Out? 
+          Struggling to Stand Out?
         </h2>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
           <span className="block sm:inline">
-            Hire Virtual Snipers for <span className="text-red-500">Your Transformation</span>
+            Hire Virtual Snipers for{" "}
+            <span className="text-red-500">Your Transformation</span>
           </span>
           <span className="block">
             <span className="text-red-500">Into A</span> Personal Brand.
           </span>
         </h1>
         <p className="text-xl sm:text-2xl text-white mb-8">
-        Where Expert Content Transforms You into a Popular Brand!
+          Where Expert Content Transforms You into a Popular Brand!
         </p>
-        <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full text-lg">
-          Book a call Today !
-        </button>
+        <a href="#schedulemeeting">
+          <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full text-lg">
+            Book a call Today!
+          </button>
+        </a>
       </div>
       {/* <div className="relative z-10"> */}
       {/* </div> */}
