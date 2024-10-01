@@ -28,7 +28,7 @@ function Branding() {
           Personal Branding Strategy is about crafting stories that resonate and
           inspire​.
         </p>
-        <div className="flex items-center justify-start pt-6 sm:pt-8 lg:pt-10 text-lg sm:text-xl">
+        <div className="flex items-center justify-center md:justify-start pt-6 sm:pt-8 lg:pt-10 text-lg sm:text-xl">
           <a href="#getaquote">
             <button className="bg-[#fd454c] text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md hover:bg-red-600 transition-colors duration-300">
               Book Your Consultation Directly

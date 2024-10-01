@@ -10,7 +10,7 @@ const WeCater = () => {
           </h2>
         </div>
         <section className="flex flex-col lg:flex-row items-center justify-between sm:m-8">
-          <div className="flex-1 lg:w-1/2 p-4">
+          <div className="flex-1 lg:w-1/2">
             <div className="flex flex-col justify-start gap-y-3 sm:gap-2">
               {[
                 {
@@ -56,7 +56,7 @@ const WeCater = () => {
             <p className="lg:text-[16px] sm:text-sm text-gray-700 pt-4 sm:pt-5 font-semibold">
               ... and just about everyone who wants to be successful and famous.
             </p>
-            <div className="flex items-center justify-start pt-6 sm:pt-8">
+            <div className="flex items-center justify-center md:justify-start  pt-6 sm:pt-8 lg:pt-10 text-lg sm:text-xl">
               <a href="#getaquote">
                 <button className="bg-[#fd454c] text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md hover:bg-red-600 transition-colors duration-300 text-lg sm:text-[16px]">
                   Book Your Consultation Directly

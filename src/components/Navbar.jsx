@@ -62,12 +62,12 @@ function Navbar() {
           <a href="#faqs" className="hover:text-gray-300 text-sm md:text-base">
             FAQs
           </a>
-          <a
+          {/* <a
             href="#schedulemeeting"
             className="hover:text-gray-300 text-sm md:text-base"
           >
             Contact Us
-          </a>
+          </a> */}
         </div>
         {/* "Book a Call" button for larger screens */}
         <div className="hidden lg:flex">
@@ -176,13 +176,13 @@ function Navbar() {
             >
               FAQs
             </a>
-            <a
+            {/* <a
               href="#schedulemeeting"
               onClick={handleLinkClick}
               className="block py-2 px-4 hover:bg-gray-100"
             >
               Contact Us
-            </a>
+            </a> */}
             <a href="#getaquote" onClick={handleLinkClick}>
               <button className="w-full text-center bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                 Book a Call

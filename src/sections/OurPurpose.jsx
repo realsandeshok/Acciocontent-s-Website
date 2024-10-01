@@ -30,7 +30,7 @@ const OurPurpose = () => {
         </div> */}
 
         {/* Vision Section */}
-        <div className="flex flex-col lg:flex-row items-center justify-between mt-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between mt-8">
           <div className="flex-1 lg:w-1/2 p-4">
             <div className="flex flex-col justify-center gap-y-4 sm:gap-y-5">
               <h2 className="text-xl sm:text-3xl font-bold text-gray-900 pt-3">
