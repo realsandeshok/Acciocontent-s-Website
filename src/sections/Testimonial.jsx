@@ -67,7 +67,7 @@ export const Testimonial = () => {
         </h2>
 
         {/* Testimonial cards */}
-        <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-2'} gap-6 mb-8`}>
+        <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-2'} mb-8`}>
           {currentTestimonials.map((testimonial, index) => (
             <div key={index} className="flex justify-center">
               <TestimonialsCard
