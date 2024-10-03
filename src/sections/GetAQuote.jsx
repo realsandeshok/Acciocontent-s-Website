@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import redCheck from "../assets/check-red.png";
+import whiteCheck from "../assets/check-white.png";
 
 function GetAQuote() {
   const [isOpen, setIsOpen] = useState(false);
@@ -172,11 +174,11 @@ function GetAQuote() {
         <ul className="list-disc list-inside space-y-2">
           {features.map((item, index) => (
             <li key={index} className="flex items-start">
-              <img
-                src="https://acciocontent.com/_next/static/media/dots.c564385b.svg"
-                alt="check"
-                className="h-6 w-6 mr-2"
-              />
+             <img
+              src={isSpecial ? whiteCheck : redCheck} // Use whiteCheck for red background and redCheck for white background
+              alt="check"
+              className="h-5 w-5 mr-2"
+            />
               {item}
             </li>
           ))}

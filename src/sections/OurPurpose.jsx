@@ -6,7 +6,7 @@ const OurPurpose = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mission Section */}
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 pt-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 pt-3">
             Mission & Vision
           </h2>
         </div>
@@ -33,10 +33,10 @@ const OurPurpose = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between mt-8">
           <div className="flex-1 lg:w-1/2 p-4">
             <div className="flex flex-col justify-center gap-y-4 sm:gap-y-5">
-              <h2 className="text-xl sm:text-3xl font-bold text-gray-900 pt-3">
+              <h2 className="text-xl sm:text-3xl font-semibold text-gray-900 pt-3">
                 Mission
               </h2>
-              <p className="text-sm sm:text-lg lg:text-xl text-gray-700 font-semibold">
+              <p className="text-sm sm:text-lg lg:text-xl text-gray-700">
                 We guide business leaders, top professionals to become
                 captivating personal brands. We deliver strategies needed to
                 transform you into a symbol of prestige, influence, and success.
@@ -46,10 +46,10 @@ const OurPurpose = () => {
                 elevate those who aspire to attain greatness, turning their
                 personal brands into pillars of influence and prosperity.
               </p>
-              <h2 className="text-xl sm:text-3xl font-bold text-gray-900 pt-3">
+              <h2 className="text-xl sm:text-3xl font-semibold text-gray-900 pt-3">
                 Vision
               </h2>
-              <p className="text-sm sm:text-lg lg:text-xl text-gray-700 font-semibold">
+              <p className="text-sm sm:text-lg lg:text-xl text-gray-700 ">
                 Our vision is to unlock the untapped potential of professionals
                 and leaders by turning their unique stories into powerful
                 narratives of success. We aim to elevate personal branding to a

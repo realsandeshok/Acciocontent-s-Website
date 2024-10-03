@@ -7,13 +7,13 @@ function Branding() {
         <h2 className="text-xl sm:text-3xl font-bold text-gray-900 py-3">
           Why Personal Branding?
         </h2>
-        <p className="text-sm sm:text-lg  text-gray-700 font-semibold">
+        <p className="text-sm sm:text-lg  text-gray-700 ">
           Branding is your core identity. Personal branding is about being
           recognized for your expertise, values, and influence. A strong brand
           distinguishes you in a competitive market enhancing your visibility,
           credibility, and authority.
         </p>
-        <p className="text-sm sm:text-lg  text-gray-700 font-semibold pt-2">
+        <p className="text-sm sm:text-lg  text-gray-700 pt-2">
           Whether you are a startup founder, aspiring senior executive, business
           leader, a politician, or top-level executive, personal branding opens
           doors to new opportunities​
@@ -21,7 +21,7 @@ function Branding() {
         <h2 className="text-xl sm:text-3xl font-bold text-gray-900 py-3">
           Why is Content Strategy Important in Personal Branding?
         </h2>
-        <p className="text-sm sm:text-lg  text-gray-700 font-semibold">
+        <p className="text-sm sm:text-lg  text-gray-700">
           Content showcases your expertise, builds trust, and engages your
           audience. A well-thought-out content strategy ensures that your
           message is consistent, valuable, and aligned with your brand goals. A

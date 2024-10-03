@@ -12,7 +12,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-white text-[#2f4858] py-3 px-4 shadow-md fixed top-0 left-0 w-full z-50">
+    <nav className="bg-white text-[#2f4858] py-3 px-8 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="max-w-[88rem] mx-auto flex justify-between items-center">
         <a href="/" className="flex-shrink-0">
           <img
@@ -30,7 +30,7 @@ function Navbar() {
             href="#ourpurpose"
             className="hover:text-gray-300 text-sm md:text-base"
           >
-            Our Purpose
+            Secret Sauce
           </a>
           <a
             href="#services"
@@ -42,13 +42,13 @@ function Navbar() {
             href="#branding"
             className="hover:text-gray-300 text-sm md:text-base"
           >
-            Branding
+            Personal Branding
           </a>
           <a
             href="#wecater"
             className="hover:text-gray-300 text-sm md:text-base"
           >
-            We Cater
+            Clients
           </a>
           <a
             href="#getaquote"
@@ -132,7 +132,7 @@ function Navbar() {
               onClick={handleLinkClick}
               className="block py-2 px-4 hover:bg-gray-100"
             >
-              Our Purpose
+              Secret Sauce
             </a>
             <a
               href="#services"
@@ -146,14 +146,14 @@ function Navbar() {
               onClick={handleLinkClick}
               className="block py-2 px-4 hover:bg-gray-100"
             >
-              Branding
+              Personal Branding
             </a>
             <a
               href="#wecater"
               onClick={handleLinkClick}
               className="block py-2 px-4 hover:bg-gray-100"
             >
-              We Cater
+              Clients
             </a>
             <a
               href="#getaquote"

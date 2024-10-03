@@ -28,7 +28,7 @@ function Services() {
                 text: "Blogs, Article, Social Content Writing",
                 icon: "services-icon-3.svg",
               },
-              { text: "Digital Brand Strategy", icon: "services-icon-5.svg" },
+              { text: "Digital Branding Strategy", icon: "services-icon-5.svg" },
             ].map((service, index) => (
               <div
                 key={index}
@@ -64,7 +64,7 @@ function Services() {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-8">
             {[
               {
-                text: "Top search rankings",
+                text: "Top Search Engine Rankings",
                 icon: "content-effect-icon-1.svg",
               },
               {
