@@ -174,11 +174,11 @@ function GetAQuote() {
         <ul className="list-disc list-inside space-y-2">
           {features.map((item, index) => (
             <li key={index} className="flex items-start">
-             <img
-              src={isSpecial ? whiteCheck : redCheck} // Use whiteCheck for red background and redCheck for white background
-              alt="check"
-              className="h-5 w-5 mr-2"
-            />
+              <img
+                src={isSpecial ? whiteCheck : redCheck} // Use whiteCheck for red background and redCheck for white background
+                alt="check"
+                className="h-5 w-5 mr-2"
+              />
               {item}
             </li>
           ))}
@@ -201,10 +201,19 @@ function GetAQuote() {
         <>
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg max-w-md mx-auto">
-              <h2 className="text-xl font-bold mb-4">
-                Thank you for choosing the {selectedPackage}. Kindly provide the
-                below information.
-              </h2>
+              <div className="flex justify-between items-start mb-4">
+                <h2 className="text-xl font-bold">
+                  Thank you for choosing the {selectedPackage}. Kindly provide
+                  the below information.
+                </h2>
+                <button
+                  className="text-gray-600 hover:text-gray-800 pt-[0.5px]"
+                  onClick={handleCloseModal}
+                >
+                  {/* Your SVG icon here */}
+                  <CrossIcon />
+                </button>
+              </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label
@@ -299,12 +308,6 @@ function GetAQuote() {
                 >
                   Submit
                 </button>
-                <button
-                  className="mt-4 text-gray-500"
-                  onClick={handleCloseModal}
-                >
-                  Cancel
-                </button>
               </form>
               {/* Display status message */}
               {status.message && (
@@ -325,10 +328,19 @@ function GetAQuote() {
         <>
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg max-w-md mx-auto h-auto max-h-[90vh] overflow-y-auto">
-              <h2 className="text-xl font-bold mb-4">
-                Welcome, to schedule your discovery call we need the below
-                information.
-              </h2>
+              <div className="flex justify-between items-start mb-4">
+                <h2 className="text-xl font-bold mb-4">
+                  Welcome, to schedule your discovery call we need the below
+                  information.
+                </h2>
+                <button
+                  className="text-gray-600 hover:text-gray-800 pt-[0.5px]"
+                  onClick={handleCloseModal}
+                >
+                  {/* Your SVG icon here */}
+                  <CrossIcon />
+                </button>
+              </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label
@@ -490,12 +502,6 @@ function GetAQuote() {
                   className="w-full bg-[#fd454c] text-white py-2 rounded mt-4"
                 >
                   Submit
-                </button>
-                <button
-                  className="mt-4 text-gray-500"
-                  onClick={handleCloseModal}
-                >
-                  Cancel
                 </button>
               </form>
               {/* Display status message */}
@@ -517,10 +523,19 @@ function GetAQuote() {
         <>
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg max-w-md mx-auto h-auto max-h-[90vh] overflow-y-auto">
-              <h2 className="text-xl font-bold mb-4">
-                Welcome, to schedule your discovery call we need the below
-                information.
-              </h2>
+              <div className="flex justify-between items-start mb-4">
+                <h2 className="text-xl font-bold mb-4">
+                  Welcome, to schedule your discovery call we need the below
+                  information.
+                </h2>
+                <button
+                  className="text-gray-600 hover:text-gray-800 pt-[0.5px]"
+                  onClick={handleCloseModal}
+                >
+                  {/* Your SVG icon here */}
+                  <CrossIcon />
+                </button>
+              </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label
@@ -682,12 +697,6 @@ function GetAQuote() {
                   className="w-full bg-[#fd454c] text-white py-2 rounded mt-4"
                 >
                   Submit
-                </button>
-                <button
-                  className="mt-4 text-gray-500"
-                  onClick={handleCloseModal}
-                >
-                  Cancel
                 </button>
               </form>
               {/* Display status message */}
@@ -792,3 +801,22 @@ function GetAQuote() {
 }
 
 export default GetAQuote;
+
+function CrossIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6 text-gray-600 hover:text-gray-800"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}

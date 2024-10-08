@@ -47,7 +47,11 @@ export const Testimonial = () => {
   const isMobile = window.innerWidth < 768;
   const currentTestimonials = isMobile
     ? [testimonials[currentIndex]]
-    : [testimonials[currentIndex], testimonials[(currentIndex + 1) % testimonials.length]];
+    :[
+      testimonials[currentIndex], 
+      testimonials[(currentIndex + 1) % testimonials.length], 
+      testimonials[(currentIndex + 2) % testimonials.length]
+    ];;
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };
@@ -67,7 +71,7 @@ export const Testimonial = () => {
         </h2>
 
         {/* Testimonial cards */}
-        <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-2'} mb-8`}>
+        <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-3'} mb-8`}>
           {currentTestimonials.map((testimonial, index) => (
             <div key={index} className="flex justify-center">
               <TestimonialsCard

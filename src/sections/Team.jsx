@@ -34,7 +34,7 @@ const Team = () => {
             color="#fd454c"
           />
           <Profile
-            name="Suresh Kumar"
+            name="Suresh"
             img={sureshkumar}
             designation="Content & SEO "
             color="#373b47"

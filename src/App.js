@@ -12,6 +12,7 @@ import WeCater from "./sections/WeCater";
 import Hero from "./sections/Hero"
 import Footer from './components/Footer';
 import OurPurpose from './sections/OurPurpose';
+import Download from './components/Download';
 // import ScheduleMeeting from './sections/ScheduleMeeting';
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
       <section id="faqs">
         <FAQ />
       </section>
+      <Download />
       {/* <section id="schedulemeeting">
         <ScheduleMeeting />
       </section> */}
